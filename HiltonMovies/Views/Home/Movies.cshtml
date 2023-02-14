@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Movies";
+}
+
+<body>
+    <div>
+        <h1>Add a movie to the collection!</h1>
+        <br />
+    </div>
+
+@model HiltonMovies.Models.MovieResponse
+@using System.ComponentModel.DataAnnotations
+
+<div>
+    <form method="post">
+        <label asp-for="category">Category:</label>
+        <input asp-for="category" /><br />
+
+        <label asp-for="title">Title:</label>
+        <input asp-for="title" /><br />
+
+        <label asp-for="year">Year:</label>
+        <input asp-for="year" /><br />
+
+        <label asp-for="director">Director:</label>
+        <input asp-for="director" /><br />
+
+        <label asp-for="rating">Rating:</label>
+        <select asp-for="rating">
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+        </select><br />
+
+        <label asp-for="edited">Edited:</label>
+        <input asp-for="edited" type="radio" id="yes" name="choice" value="Yes" />
+        <label for="yes">Yes</label>
+        <input asp-for="edited" type="radio" id="no" name="choice" value="No" />
+        <label for="no">No</label>
+        <br />
+
+        <label asp-for="lent">Lent to:</label>
+        <input asp-for="lent" /><br />
+
+        <label asp-for="notes">Notes:</label>
+        <input asp-for="notes" /><br /><br />
+
+        <button type="submit">Add Movie</button>
+
+        <div asp-validation-summary="All"></div>
+    </form>
+</div>
+</body>

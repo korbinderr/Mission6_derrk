@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Submitted";
+}
+
+
+@if (Model.title == "Hot Rod")
+{
+    <h1>Success!</h1>
+    <br />
+    <br />
+    <h4>You added @Model.title by @Model.director</h4>
+    <p>(The BEST movie of all time!!!)</p>
+    <br />
+
+    @if (Model.lent != "")
+    {
+        <h4>(And make sure to get it back from @Model.lent soon!)</h4>
+    }
+}
+
+else
+{
+    <h1>Success!</h1>
+    <br />
+    <br />
+    <h4>You added @Model.title by @Model.director</h4>
+    <br />
+
+    @if (Model.lent != "")
+    {
+        <h4>(And make sure to get it back from @Model.lent soon!)</h4>
+    }
+}

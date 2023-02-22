@@ -12,7 +12,7 @@ namespace HiltonMovies.Migrations
                 {
                     categoryID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    category = table.Column<string>(nullable: true)
+                    categoryName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -47,42 +47,42 @@ namespace HiltonMovies.Migrations
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "categoryID", "category" },
+                columns: new[] { "categoryID", "categoryName" },
                 values: new object[] { 1, "Action/Adventure" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "categoryID", "category" },
+                columns: new[] { "categoryID", "categoryName" },
                 values: new object[] { 2, "Comedy" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "categoryID", "category" },
+                columns: new[] { "categoryID", "categoryName" },
                 values: new object[] { 3, "Drama" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "categoryID", "category" },
+                columns: new[] { "categoryID", "categoryName" },
                 values: new object[] { 4, "Family" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "categoryID", "category" },
+                columns: new[] { "categoryID", "categoryName" },
                 values: new object[] { 5, "Horror/Suspense" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "categoryID", "category" },
+                columns: new[] { "categoryID", "categoryName" },
                 values: new object[] { 6, "Miscellaneous" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "categoryID", "category" },
+                columns: new[] { "categoryID", "categoryName" },
                 values: new object[] { 7, "Television" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "categoryID", "category" },
+                columns: new[] { "categoryID", "categoryName" },
                 values: new object[] { 8, "VHS" });
 
             migrationBuilder.InsertData(

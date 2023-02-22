@@ -21,7 +21,7 @@ namespace HiltonMovies.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("category")
+                    b.Property<string>("categoryName")
                         .HasColumnType("TEXT");
 
                     b.HasKey("categoryID");
@@ -32,42 +32,42 @@ namespace HiltonMovies.Migrations
                         new
                         {
                             categoryID = 1,
-                            category = "Action/Adventure"
+                            categoryName = "Action/Adventure"
                         },
                         new
                         {
                             categoryID = 2,
-                            category = "Comedy"
+                            categoryName = "Comedy"
                         },
                         new
                         {
                             categoryID = 3,
-                            category = "Drama"
+                            categoryName = "Drama"
                         },
                         new
                         {
                             categoryID = 4,
-                            category = "Family"
+                            categoryName = "Family"
                         },
                         new
                         {
                             categoryID = 5,
-                            category = "Horror/Suspense"
+                            categoryName = "Horror/Suspense"
                         },
                         new
                         {
                             categoryID = 6,
-                            category = "Miscellaneous"
+                            categoryName = "Miscellaneous"
                         },
                         new
                         {
                             categoryID = 7,
-                            category = "Television"
+                            categoryName = "Television"
                         },
                         new
                         {
                             categoryID = 8,
-                            category = "VHS"
+                            categoryName = "VHS"
                         });
                 });
 
@@ -152,7 +152,7 @@ namespace HiltonMovies.Migrations
 
             modelBuilder.Entity("HiltonMovies.Models.MovieResponse", b =>
                 {
-                    b.HasOne("HiltonMovies.Models.Category", "category")
+                    b.HasOne("HiltonMovies.Models.Category", "Category")
                         .WithMany()
                         .HasForeignKey("categoryID")
                         .OnDelete(DeleteBehavior.Cascade)

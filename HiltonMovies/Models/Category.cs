@@ -11,7 +11,7 @@ namespace HiltonMovies.Models
         [Key]
         [Required]
         public int categoryID { get; set; }
-        public string category { get; set; }
+        public string categoryName { get; set; }
 
     }
 }

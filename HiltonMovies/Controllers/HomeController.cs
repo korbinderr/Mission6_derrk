@@ -1,5 +1,6 @@
 ﻿using HiltonMovies.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,8 @@ namespace HiltonMovies.Controllers
         [HttpGet]
         public IActionResult Movies()
         {
+            ViewBag.Categories = _movieContext.Categories.ToList();
+
             return View(); 
         }
 
@@ -47,8 +50,9 @@ namespace HiltonMovies.Controllers
         public IActionResult MoviesDisplay()
         {
             var movieList = _movieContext.Responses
+            .Include(x => x.Category)
             //.Where(x => x.rating == "PG-13")
-            .OrderBy(x => x.category)
+            .OrderBy(x => x.categoryID)
             .ToList();
 
             return View(movieList);

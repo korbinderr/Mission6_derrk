@@ -26,42 +26,42 @@ namespace HiltonMovies.Models
                     new Category 
                     { 
                         categoryID = 1, 
-                        category = "Action/Adventure"
+                        categoryName = "Action/Adventure"
                     },
                     new Category
                     {
                         categoryID = 2,
-                        category = "Comedy"
+                        categoryName = "Comedy"
                     },        
                     new Category
                     {
                         categoryID = 3,
-                        category = "Drama"
+                        categoryName = "Drama"
                     },                    
                     new Category
                     {
                         categoryID = 4,
-                        category = "Family"
+                        categoryName = "Family"
                     },                    
                     new Category
                     {
                         categoryID = 5,
-                        category = "Horror/Suspense"
+                        categoryName = "Horror/Suspense"
                     },                   
                     new Category
                     {
                         categoryID = 6,
-                        category = "Miscellaneous"
+                        categoryName = "Miscellaneous"
                     },
                     new Category
                     {
                         categoryID = 7,
-                        category = "Television"
+                        categoryName = "Television"
                     },
                     new Category
                     {
                         categoryID = 8,
-                        category = "VHS"
+                        categoryName = "VHS"
                     }
                 );
 

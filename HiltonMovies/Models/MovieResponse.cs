@@ -28,6 +28,6 @@ namespace HiltonMovies.Models
         //build foreign key relationship
         [Required]
         public int categoryID { get; set; }
-        public Category category { get; set; }
+        public Category Category { get; set; }
     }
 }

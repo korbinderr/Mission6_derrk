@@ -11,13 +11,11 @@ namespace HiltonMovies.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private MovieDataContext _movieContext { get; set; }
 
         // Constructor
-        public HomeController(ILogger<HomeController> logger, MovieDataContext movies)
+        public HomeController(MovieDataContext movies)
         {
-            _logger = logger;
             _movieContext = movies;
         }
 
@@ -46,10 +44,14 @@ namespace HiltonMovies.Controllers
             return View("confirmation", response);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult MoviesDisplay()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var movieList = _movieContext.Responses
+            //.Where(x => x.rating == "PG-13")
+            .OrderBy(x => x.category)
+            .ToList();
+
+            return View(movieList);
         }
     }
 }

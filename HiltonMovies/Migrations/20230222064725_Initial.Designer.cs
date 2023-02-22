@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HiltonMovies.Migrations
 {
     [DbContext(typeof(MovieDataContext))]
-    [Migration("20230214001003_Initial")]
+    [Migration("20230222064725_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -17,15 +17,70 @@ namespace HiltonMovies.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.32");
 
+            modelBuilder.Entity("HiltonMovies.Models.Category", b =>
+                {
+                    b.Property<int>("categoryID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("category")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("categoryID");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            categoryID = 1,
+                            category = "Action/Adventure"
+                        },
+                        new
+                        {
+                            categoryID = 2,
+                            category = "Comedy"
+                        },
+                        new
+                        {
+                            categoryID = 3,
+                            category = "Drama"
+                        },
+                        new
+                        {
+                            categoryID = 4,
+                            category = "Family"
+                        },
+                        new
+                        {
+                            categoryID = 5,
+                            category = "Horror/Suspense"
+                        },
+                        new
+                        {
+                            categoryID = 6,
+                            category = "Miscellaneous"
+                        },
+                        new
+                        {
+                            categoryID = 7,
+                            category = "Television"
+                        },
+                        new
+                        {
+                            categoryID = 8,
+                            category = "VHS"
+                        });
+                });
+
             modelBuilder.Entity("HiltonMovies.Models.MovieResponse", b =>
                 {
                     b.Property<int>("MovieID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("category")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("categoryID")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("director")
                         .IsRequired()
@@ -54,13 +109,15 @@ namespace HiltonMovies.Migrations
 
                     b.HasKey("MovieID");
 
+                    b.HasIndex("categoryID");
+
                     b.ToTable("Responses");
 
                     b.HasData(
                         new
                         {
                             MovieID = 1,
-                            category = "Action/Adventure",
+                            categoryID = 1,
                             director = "Troy Duffy",
                             edited = true,
                             lent = "",
@@ -72,7 +129,7 @@ namespace HiltonMovies.Migrations
                         new
                         {
                             MovieID = 2,
-                            category = "Action/Adventure",
+                            categoryID = 1,
                             director = "Christopher Nolan",
                             edited = false,
                             lent = "",
@@ -84,7 +141,7 @@ namespace HiltonMovies.Migrations
                         new
                         {
                             MovieID = 3,
-                            category = "Action/Adventure",
+                            categoryID = 1,
                             director = "John McTiernan",
                             edited = true,
                             lent = "",
@@ -93,6 +150,15 @@ namespace HiltonMovies.Migrations
                             title = "Die Hard",
                             year = (short)1988
                         });
+                });
+
+            modelBuilder.Entity("HiltonMovies.Models.MovieResponse", b =>
+                {
+                    b.HasOne("HiltonMovies.Models.Category", "category")
+                        .WithMany()
+                        .HasForeignKey("categoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

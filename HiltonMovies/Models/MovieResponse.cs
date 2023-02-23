@@ -12,22 +12,29 @@ namespace HiltonMovies.Models
         [Required]
         public int MovieID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Must enter a title")]
         public string title { get; set; }
-        [Required]
+
+        [Required(ErrorMessage ="TEST")]
         public short year { get; set; }
+
         [Required]
         public string director { get; set; }
+
         [Required]
         public string rating { get; set; }
+
         public bool edited { get; set; }
+
         public string lent { get; set; }
+        
         [StringLength(25)]
         public string notes { get; set; }
 
         //build foreign key relationship
         [Required]
         public int categoryID { get; set; }
+
         public Category Category { get; set; }
     }
 }

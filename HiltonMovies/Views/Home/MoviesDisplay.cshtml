@@ -7,6 +7,7 @@
 <table class="table table-bordered table-striped">
     <thead class="font-weight-bold">
         <tr>
+            <td> </td>
             <td>Category</td>
             <td>Title</td>
             <td>Year</td>
@@ -15,23 +16,26 @@
             <td>Edited?</td>
             <td>Lent to</td>
             <td>Notes</td>
+            <td> </td>
         </tr>
     </thead>
 
     <tbody>
         @foreach (var i in Model)
             {
-                <tr>
-                    <td>@i.Category.categoryName</td>
-                    <td>@i.title</td>
-                    <td>@i.year</td>
-                    <td>@i.director</td>
-                    <td>@i.rating</td>
-                    <td>@i.edited</td>
-                    <td>@i.lent</td>
-                    <td>@i.notes</td>
+        <tr>
+            <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@i.MovieID">EDIT</a></td>
+            <td>@i.Category.categoryName</td>
+            <td>@i.title</td>
+            <td>@i.year</td>
+            <td>@i.director</td>
+            <td>@i.rating</td>
+            <td>@i.edited</td>
+            <td>@i.lent</td>
+            <td>@i.notes</td>
+            <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@i.MovieID">DELETE</a></td>
 
-                </tr>
+        </tr>
             }
     </tbody>
 </table>
